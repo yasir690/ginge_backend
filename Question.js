@@ -1,0 +1,102 @@
+const JSONQuestion = {
+    1: [
+        "Do you want me to suggest the most famous drinks in town",
+        "How about I introduce you to the drink that's got everyone talking?",
+        "Craving a local favorite? Let me know if you want my top drink recommendation!",
+        "Want to taste what all the buzz is about? I can hook you up with the most famous drink in town.",
+        "Want to impress your taste buds? Let me suggest the drink that everyone can't stop talking about.",
+        "Ready to sip on something famous? Let me spill the tea (or cocktail, I must say).",
+        "How about I suggest the drink that's always a hit?",
+        "How about I suggest a drink that's worth its weight in ice?",
+        "Want to try the drink that's got everyone raising their glasses?",
+        "A drink that'll make your taste buds dance? I've got just the thing",
+        "Want to know what drink is the real MVP around here?"
+    ],
+    2: [
+        "4 famous drinks in your town",
+        "4 drinks that'll rock your taste buds",
+        "4 local drinks that are pure magic",
+        "4 sips that'll make your night pop",
+        "4 cocktails you absolutely must try",
+        "4 iconic sips you've got to taste",
+        "Check out these 4 famous drinks",
+        "Top 4 drinks everyone loves here",
+        "4 drinks that are all the rage",
+        "4 drinks that are a town favorite",
+        "Make your taste buds dance with these 4 drinks"
+    ],
+    3: [
+        "What kind of drink do you usually like?",
+        "What's your go-to sip?",
+        "What's your drink mood today?",
+        "What quenches your thirst best?",
+        "What is your favorite flavor in a glass?",
+        "What's your ultimate bar order?",
+        "Which drink gets you grooving?",
+        "What's your favorite way to hydrate... with style?",
+        "Your drink, your rules—what's it gonna be?",
+        "What's your favorite happy hour treat?",
+        "What kinda of a drink is your ultimate cheers in a glass?",
+        "Which cocktail suits your personality?",
+        "Your signature sip—what is it?"
+    ],
+    4: [
+        "Drink Categories",
+        "Pick you portion type",
+        "What's your flavor lane?",
+        "Explore the drink categories",
+        "What's your kind of sip?",
+        "Select your drink style.",
+        "Pick your next pour.",
+        "What category suits your taste?",
+        "What's your vibe in a glass?",
+        "What are you in the mood for?",
+        "Select your sip of choice",
+        "Find your favorite category.",
+        "What's your drink fix?",
+        "Choose your kind of refreshment.",
+        "Explore your category options.",
+        "Select your kind of delight",
+        "Where's your thirst taking you?"
+    ],
+    5: [
+        "List of category drink",
+        "Explore the drinks in this category!",
+        "Check out what's on the menu!",
+        "Drinks that match your taste!",
+        "Your selection awaits, pick a drink!",
+        "Here's what we've got for you",
+        "Which one catches your eye?",
+        "A lineup of your chosen category",
+        "Find your favorite pour.",
+        "Take a look, what's your choice?",
+        "Here's the best of this category",
+        "Pick from these delicious options",
+        "Browse your selection. what'll it be?",
+        "Your chosen category's finest drinks!",
+        "Take your pick from these options",
+        "Explore your options. What suits you?"
+    ],
+    6:[
+        "What about you tell me what you have in your bar and I can suggest you some drinks to make?",
+        "What's in your bar stash? I'll come up with a perfect recipe for you.",
+        "Tell me what you've got in your bar, and I'll mix up some ideas.",
+        "What ingredients do you have? I'll show you some magic",
+        "What's stocked in your bar? Let's create something.",
+        "Share your bar inventory, and I'll suggest a drink.",
+        "What's in your bar? I'll find the perfect match.",
+        "What's on your shelf? I'll whip up a tasty suggestion.",
+        "What are we working with? I've got drink ideas for you.",
+        "List down your bar stock, and I'll craft a recipe.",
+        "What's in your bar cart? I'll find your perfect drink to make.",
+        "What ingredients do you have on hand? Let's get creative.",
+        "Name your ingredients, and I'll suggest something fun.",
+        "What's in your bar lineup? I'll shake up some options.",
+        "What do you have stocked? I'll find a match made in heaven!",
+        "What's in your bar? I'll turn it into something delicious."
+    ]
+}
+
+module.exports = {
+    JSONQuestion
+}

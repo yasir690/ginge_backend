@@ -1,0 +1,212 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum otpReason {
+  REGISTER
+  FORGETPASSWORD
+}
+
+enum userType {
+  ADMIN
+  USER
+}
+
+enum deviceType {
+  ANDROID
+  IOS
+}
+
+enum recommendedDrinkCategory {
+  OTHER
+  POPULAR
+  MOJITO
+  OLD_FASHION
+  LONG_ISLAND_TEA
+}
+
+model user {
+  id               String             @id @default(uuid())
+  fullName         String?
+  email            String             @unique
+  password         String?
+  gender           String?
+  dateOfBirth      DateTime?
+  country          String?
+  city             String?
+  states           String?
+  phoneNumber      String?
+  deviceType       deviceType?
+  deviceToken      String?
+  isCreatedProfile Boolean            @default(false)
+  image            String?
+  latitude         Float?
+  longitude        Float?
+  location         String?
+  about            String?
+  isNotify         Boolean            @default(true)
+  isBotOpen        Boolean            @default(true)
+  userType         userType?
+  // notificationOnAndOff Boolean            @default(false)
+  bar              bar?
+  feedback         feedback[]
+  notification     notification[]
+  inhousedrink     inhousedrink[]
+  recommendeddrink recommendeddrink[]
+  preferredDrink   preferredDrink[]
+  mydrink          mydrink[]
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+}
+
+model bar {
+  id         String       @id @default(uuid())
+  userId     String       @unique
+  user       user         @relation(fields: [userId], references: [id])
+  drink      drink[]
+  ingredient ingredient[]
+}
+
+model drink {
+  id        String @id @default(uuid())
+  drinkName String
+  barId     String
+  bar       bar    @relation(fields: [barId], references: [id])
+}
+
+model ingredient {
+  id             String @id @default(uuid())
+  ingredientName String
+  barId          String
+  bar            bar    @relation(fields: [barId], references: [id])
+}
+
+model otp {
+  id        String    @id @default(uuid())
+  otpKey    String
+  otpReason otpReason
+  otpUsed   Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  email     String    @unique
+}
+
+model feedback {
+  id          String @id @default(uuid())
+  subject     String
+  description String
+  userId      String
+  user        user   @relation(fields: [userId], references: [id])
+}
+
+model notification {
+  id     String  @id @default(uuid())
+  title  String
+  body   String
+  userId String
+  isRead Boolean @default(false)
+  user   user    @relation(fields: [userId], references: [id])
+}
+
+model admin {
+  id             String          @id @default(uuid())
+  email          String          @unique
+  password       String?
+  name           String?
+  deviceToken    String?
+  otp            String?
+  userType       userType?
+  aboutapp       aboutapp?
+  privacypolicy  privacypolicy?
+  termscondition termscondition?
+}
+
+model aboutapp {
+  id        String @id @default(uuid())
+  text      String
+  createdBy String @unique
+  admin     admin  @relation(fields: [createdBy], references: [id])
+}
+
+model privacypolicy {
+  id        String @id @default(uuid())
+  text      String
+  createdBy String @unique
+  admin     admin  @relation(fields: [createdBy], references: [id])
+}
+
+model termscondition {
+  id        String @id @default(uuid())
+  text      String
+  createdBy String @unique
+  admin     admin  @relation(fields: [createdBy], references: [id])
+}
+
+model mydrink {
+  id         String  @id @default(uuid())
+  title      String
+  ingredient Json
+  procedure  Json
+  img        String?
+  drinkId    String?
+  userId     String
+  user       user    @relation(fields: [userId], references: [id])
+}
+
+model inhousedrink {
+  id         String  @id @default(uuid())
+  title      String
+  ingredient Json
+  procedure  Json
+  img        String?
+  isSaved    Boolean @default(false)
+  userId     String
+  user       user    @relation(fields: [userId], references: [id])
+}
+
+model recommendeddrink {
+  id         String                   @id @default(uuid())
+  title      String
+  ingredient Json
+  procedure  Json
+  img        String?
+  category   String?
+  isSaved    Boolean                  @default(false)
+  userId     String
+  user       user                     @relation(fields: [userId], references: [id])
+}
+
+model drinkRecord {
+  id           String   @id @default(uuid())
+  name         String
+  category     String?
+  ingredients  Json
+  instructions Json
+  image        String?
+  town         String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model preferredDrink {
+  id         String                   @id @default(uuid())
+  title      String
+  ingredient Json
+  procedure  Json
+  img        String?
+  category   String?
+  isSaved    Boolean                  @default(false)
+  userId     String
+  user       user                     @relation(fields: [userId], references: [id])
+}
